@@ -1,6 +1,7 @@
 import courier.Courier;
 import courier.CourierClient;
 import courier.CourierCredentials;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,6 +27,7 @@ public class CourierLoginNegativeTest {
     }
 
     @Test
+    @DisplayName("Авторизация курьера с некорректным логином")
     public void courierLoginIncorrectLogin() {
         boolean create = courierClient.create(courier)
                 .extract().path("ok");
@@ -52,6 +54,7 @@ public class CourierLoginNegativeTest {
     }
 
     @Test
+    @DisplayName("Авторизация курьера с некорректным паролем")
     public void courierLoginIncorrectPassword() {
         boolean create = courierClient.create(courier)
                 .extract().path("ok");
@@ -78,6 +81,7 @@ public class CourierLoginNegativeTest {
     }
 
     @Test
+    @DisplayName("Авторизация курьера с пустым полем \"Логин\"")
     public void courierLoginEmptyLogin() {
         boolean create = courierClient.create(courier)
                 .extract().path("ok");
@@ -104,6 +108,7 @@ public class CourierLoginNegativeTest {
     }
 
     @Test
+    @DisplayName("Авторизация курьера с пустым полем \"Пароль\"")
     public void courierLoginEmptyPassword() {
         boolean create = courierClient.create(courier)
                 .extract().path("ok");

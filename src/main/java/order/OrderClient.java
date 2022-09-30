@@ -1,12 +1,14 @@
 package order;
 
 import courier.BaseClient;
+import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 
 public class OrderClient extends BaseClient {
 
     private final String ORDER = "/orders";
 
+    @Step("Создать заказ")
     public ValidatableResponse create(Order order) {
         return getSpec()
                 .body(order)
@@ -15,6 +17,7 @@ public class OrderClient extends BaseClient {
                 .then().log().all();
     }
 
+    @Step("Получить список заказов")
     public ValidatableResponse getOrderList(){
         return getSpec()
                 .when()

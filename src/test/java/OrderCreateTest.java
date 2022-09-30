@@ -1,3 +1,4 @@
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import order.Order;
 import order.OrderClient;
@@ -22,7 +23,7 @@ public class OrderCreateTest {
         this.colorScooter = colorScooter;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тестовые данные: {index}")
     public static Object[] getOrderData() {
         return new Object[][]{
                 {new String[]{"BLACK"}},
@@ -39,6 +40,7 @@ public class OrderCreateTest {
     }
 
     @Test
+    @DisplayName("Создание заказа")
     public void orderCreateTest() {
         ValidatableResponse response = orderClient.create(order);
         int statusCode = response.extract().statusCode();

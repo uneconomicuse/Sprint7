@@ -1,6 +1,7 @@
 import courier.Courier;
 import courier.CourierClient;
 import courier.CourierCredentials;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,6 +27,7 @@ public class CourierCreatePositiveTest {
     }
 
     @Test
+    @DisplayName("Создание курьера")
     public void courierCreateTest() {
         boolean isOk = courierClient.create(courier)
                 .extract().path("ok");

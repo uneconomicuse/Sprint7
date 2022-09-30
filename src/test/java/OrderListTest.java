@@ -1,3 +1,4 @@
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import order.*;
 import org.junit.Before;
@@ -18,6 +19,7 @@ public class OrderListTest {
     }
 
     @Test
+    @DisplayName("Проверка списка заказов")
     public void getOrderListApiTest(){
         String[] colorScooter = new String[] {"GREY"};
         order = OrderRandom.getDefaultOrderInfo(colorScooter);

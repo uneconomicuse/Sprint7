@@ -1,5 +1,6 @@
 package courier;
 
+import io.qameta.allure.Step;
 import org.apache.commons.lang3.RandomStringUtils;
 
 public class Courier {
@@ -13,6 +14,7 @@ public class Courier {
         this.firstName = firstName;
     }
 
+    @Step("Создать курьера со случайными значениями")
     public static Courier getRandomCourier() {
         return new Courier (
                 RandomStringUtils.randomAlphanumeric(10) + "@example.com",
@@ -21,6 +23,7 @@ public class Courier {
         );
     }
 
+    @Step("Создать курьера без пароля")
     public static Courier getWithoutPassword() {
         return new Courier(
                 RandomStringUtils.randomAlphanumeric(10) + "@example.com",
@@ -29,6 +32,7 @@ public class Courier {
         );
     }
 
+    @Step("Создать курьера без логина")
     public static Courier getWithoutLogin() {
         return new Courier(
                 "",
@@ -37,18 +41,22 @@ public class Courier {
         );
     }
 
+    @Step("Получить логин курьера")
     public String getLogin() {
         return login;
     }
 
+    @Step("Задать новый логин курьера")
     public void setLogin(String login) {
         this.login = login;
     }
 
+    @Step("Получить пароль курьера")
     public String getPassword() {
         return password;
     }
 
+    @Step("Задать новый пароль курьера")
     public void setPassword(String password) {
         this.password = password;
     }

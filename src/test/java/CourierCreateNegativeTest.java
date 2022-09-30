@@ -1,6 +1,7 @@
 import courier.Courier;
 import courier.CourierClient;
 import courier.CourierCredentials;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,6 +20,7 @@ public class CourierCreateNegativeTest {
     }
 
     @Test
+    @DisplayName("Создание курьера с повторяющимся логином")
     public void courierDuplicateCreateTest() {
         boolean createCourier = courierClient.create(courier)
                 .extract().path("ok");
@@ -39,6 +41,7 @@ public class CourierCreateNegativeTest {
     }
 
     @Test
+    @DisplayName("Создание курьера с повторяющимся паролем")
     public void courierCreateWithoutPasswordTest() {
         Courier courier = Courier.getWithoutPassword();
 
@@ -50,6 +53,7 @@ public class CourierCreateNegativeTest {
     }
 
     @Test
+    @DisplayName("Создание курьера без логина")
     public void courierCreateWithoutLoginTest() {
         Courier courier = Courier.getWithoutLogin();
 

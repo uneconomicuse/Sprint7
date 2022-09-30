@@ -1,5 +1,6 @@
 package courier;
 
+import io.qameta.allure.Step;
 import lombok.Data;
 
 @Data
@@ -12,6 +13,7 @@ public class CourierCredentials {
         this.password = password;
     }
 
+    @Step("Авторизоваться в системе")
     public static CourierCredentials from(Courier courier) {
         return new CourierCredentials(courier.getLogin(), courier.getPassword());
     }
